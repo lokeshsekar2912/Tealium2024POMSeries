@@ -10,7 +10,18 @@ public class Retry implements IRetryAnalyzer {
 	
 	@Override
 	public boolean retry(ITestResult result) {
-		
+		if (!result.isSuccess()) {
+			if (count<maxTry) {
+				count++;
+				result.setStatus(result.FAILURE);
+				return true;
+				}
+			else {
+				result.setStatus(result.FAILURE);
+			}
+		}else {
+			result.setStatus(result.SUCCESS);
+		}
 		return false;
 	}
 	

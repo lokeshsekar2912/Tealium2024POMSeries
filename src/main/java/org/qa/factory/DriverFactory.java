@@ -15,6 +15,8 @@ public class DriverFactory {
 
 	public WebDriver driver;
 	public Properties prop;
+	
+	//Initialize browser
 
 	public WebDriver init_Driver(Properties prop) {
 		
